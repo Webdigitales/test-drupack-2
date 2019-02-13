@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="308" viewBox="0 0 1440 308">
+  <defs>
+    <rect id="home_discipline_background-a" width="1440" height="401"/>
+    <linearGradient id="home_discipline_background-b" x1="50%" x2="50%" y1="84.331%" y2="100%">
+      <stop offset="0%" stop-color="#F9F9F9" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#F9F9F9"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(0 -65)">
+    <mask id="home_discipline_background-c" fill="#fff">
+      <use xlink:href="#home_discipline_background-a"/>
+    </mask>
+    <path fill="url(#home_discipline_background-b)" d="M719.5,373 C-53.4225073,373 -680,-66.8802333 -680,-609.5 C-680,-1152.11977 -53.4225073,-1592 719.5,-1592 C1492.42251,-1592 2119,-1152.11977 2119,-609.5 C2119,-66.8802333 1492.42251,373 719.5,373 Z" mask="url(#home_discipline_background-c)"/>
+  </g>
+</svg>

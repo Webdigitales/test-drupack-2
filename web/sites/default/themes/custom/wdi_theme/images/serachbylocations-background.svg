@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1439" height="563" viewBox="0 0 1439 563">
+  <defs>
+    <linearGradient id="serachbylocations-background-a" x1="50%" x2="50%" y1="23.599%" y2="99.566%">
+      <stop offset="0%" stop-color="#058DFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0254FE" stop-opacity=".05"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#serachbylocations-background-a)" fill-rule="evenodd" d="M1,5401 L1,5069 L1440,5069 L1440,5401 C1439.9984,5401.49979 1440,5401.99979 1440,5402.5 C1440,5627.00375 1117.86888,5809 720.5,5809 C323.131123,5809 1,5627.00375 1,5402.5 C1,5401.99979 1.00159916,5401.49979 1.00479476,5401 Z" transform="translate(-1 -5246)"/>
+</svg>

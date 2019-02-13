@@ -1,0 +1,20 @@
+uuid: 0be213be-51c4-489c-b018-e31b1edd2651
+langcode: fr
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.slider
+id: paragraph.slider.uid
+field_name: uid
+entity_type: paragraph
+bundle: slider
+label: 'Écrit par'
+description: 'The user ID of the paragraphs author.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\paragraphs\Entity\Paragraph::getCurrentUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

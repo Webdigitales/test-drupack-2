@@ -1,0 +1,20 @@
+uuid: 1fc20244-d1fd-4bfd-ad57-315caea1eec8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.uid
+field_name: uid
+entity_type: paragraph
+bundle: call_to_action
+label: 'Écrit par'
+description: 'The user ID of the paragraphs author.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\paragraphs\Entity\Paragraph::getCurrentUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

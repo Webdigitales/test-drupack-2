@@ -1,0 +1,55 @@
+uuid: 48f7cd5b-7a63-49a4-a289-a633d7105124
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grid
+    - field.field.node.article.comment
+    - field.field.node.article.field_article_summary
+    - field.field.node.article.field_media_image
+    - field.field.node.article.field_page_content
+    - field.field.node.article.field_tags
+    - image.style.paragraph_image_text
+    - node.type.article
+  module:
+    - media
+    - text
+    - user
+_core:
+  default_config_hash: ChmU3AVqDKU32A_fyChG0W9dTRKmVBR58B6OClCLvZI
+id: node.article.grid
+targetEntityType: node
+bundle: article
+mode: grid
+content:
+  field_article_summary:
+    type: text_trimmed
+    weight: 1
+    region: content
+    label: visually_hidden
+    settings:
+      trim_length: 200
+    third_party_settings: {  }
+  field_media_image:
+    weight: 2
+    label: visually_hidden
+    settings:
+      image_style: paragraph_image_text
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_tags:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: visually_hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+hidden:
+  comment: true
+  field_meta: true
+  field_page_content: true
+  langcode: true
+  links: true

@@ -1,0 +1,79 @@
+uuid: 6ebaf90a-edb6-46a5-993b-819520c1c05b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.page
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.image_text
+    - paragraphs.paragraphs_type.intro
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.slider
+    - paragraphs.paragraphs_type.testimonials
+    - paragraphs.paragraphs_type.text_image
+    - paragraphs.paragraphs_type.title_text
+  module:
+    - entity_reference_revisions
+id: node.page.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: page
+label: 'Page Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      intro: intro
+      title_text: title_text
+      image: image
+      text_image: text_image
+      image_text: image_text
+      quote: quote
+      slider: slider
+      gallery: gallery
+      call_to_action: call_to_action
+      testimonials: testimonials
+    target_bundles_drag_drop:
+      intro:
+        enabled: true
+        weight: -23
+      title_text:
+        enabled: true
+        weight: -22
+      image:
+        enabled: true
+        weight: -21
+      text_image:
+        enabled: true
+        weight: -20
+      image_text:
+        enabled: true
+        weight: -19
+      quote:
+        enabled: true
+        weight: -18
+      slider:
+        enabled: true
+        weight: -17
+      gallery:
+        enabled: true
+        weight: -16
+      call_to_action:
+        enabled: true
+        weight: -15
+      testimonials:
+        enabled: true
+        weight: -14
+      test:
+        weight: -13
+        enabled: false
+field_type: entity_reference_revisions

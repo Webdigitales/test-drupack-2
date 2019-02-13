@@ -1,0 +1,68 @@
+uuid: 83a5b91a-71b1-44e2-96f0-e420a1f497b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_content
+    - node.type.article
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.title_text
+  module:
+    - entity_reference_revisions
+id: node.article.field_page_content
+field_name: field_page_content
+entity_type: node
+bundle: article
+label: 'Page Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      title_text: title_text
+      quote: quote
+      image: image
+    target_bundles_drag_drop:
+      title_text:
+        enabled: true
+        weight: -25
+      quote:
+        enabled: true
+        weight: -24
+      image:
+        enabled: true
+        weight: -23
+      testimonials:
+        weight: -22
+        enabled: false
+      gallery:
+        weight: -21
+        enabled: false
+      slider:
+        weight: -20
+        enabled: false
+      call_to_action:
+        weight: -19
+        enabled: false
+      image_text:
+        weight: -18
+        enabled: false
+      intro:
+        weight: -17
+        enabled: false
+      location:
+        weight: -16
+        enabled: false
+      square_img_title_link:
+        weight: -15
+        enabled: false
+      text_image:
+        weight: -14
+        enabled: false
+field_type: entity_reference_revisions

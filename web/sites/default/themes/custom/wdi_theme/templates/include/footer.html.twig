@@ -1,0 +1,32 @@
+<footer class="footer hidden-print">
+    <div class="{{ container }}" role="contentinfo">
+
+        <div class="row footer-4col-wrapper">
+            <div class="col-sm-12 col-md-3">
+                {% block footer_first %}
+                    {{ page.footer_first }}
+                {% endblock %}
+            </div>
+            <div class="col-sm-12 col-md-3">
+                {% block footer_second %}
+                    {{ page.footer_second }}
+                {% endblock %}
+            </div>
+            <div class="col-sm-12 col-md-3">
+                {% block footer_third %}
+                    {{ page.footer_third }}
+                {% endblock %}
+            </div>
+            <div class="col-sm-12 col-md-3">
+                {% block footer_fourth %}
+                    {{ page.footer_fourth }}
+                {% endblock %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">{{ page.footer_bottom }}</div>
+        </div>
+
+    </div>
+</footer>

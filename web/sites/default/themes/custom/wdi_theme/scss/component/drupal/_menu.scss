@@ -1,0 +1,405 @@
+/* ==============================
+ * == Main Menu
+ * ============================== */
+.menu--main.nav,
+.menu--secondary-navigation.nav {
+  > li {
+    > a, > span:not(.icomoon) {
+      cursor: pointer;
+      position: relative;
+      display: block;
+      color: $black;
+      font-weight: 500;
+      padding: 22px 20px;
+      line-height: 20px;
+
+      @media #{$normal} {
+        padding: 22px 10px;
+      }
+
+      @media #{$normal} {
+        padding: 22px 20px;
+      }
+
+      &:hover {
+        background: none;
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  .menu--main.nav,
+  .menu--secondary-navigation.nav {
+    > li {
+      > a:not(.dropdown-toggle), > span:not(.icomoon) {
+
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          right: 0;
+          width: 100%;
+          height: 4px;
+          background-color: $gray-darker;
+          transform: scaleX(0);
+          transition: transform .4s cubic-bezier(1,0,0,1),color .4s cubic-bezier(1,0,0,1);
+          transform-origin: top right;
+        }
+
+        &:hover {
+          &:after {
+            transform: scaleX(1);
+            transform-origin: top left;
+          }
+        }
+      }
+    }
+
+    > li.active {
+      > a, > span:not(.icomoon) {
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          right: 0;
+          width: 100%;
+          height: 4px;
+          background-color: $gray-darker;
+        }
+      }
+    }
+  }
+}
+
+/* ==============================
+ * == Secondary Menu
+ * ============================== */
+.menu--secondary-navigation {
+  margin-right: 65px;
+
+  > li {
+    float: left;
+    text-decoration: none;
+
+    > a, span:not(.icomoon) {
+      text-transform: uppercase;
+    }
+  }
+}
+
+/* ==============================
+ * == Languages switcher (header)
+ * ============================== */
+
+/*
+ * = In Header
+ */
+.block-lang-dropdown {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+
+  .select-wrapper {
+
+    &:after {
+      font-weight: 400;
+      @include im('\e900');
+    }
+
+    .form-control {
+      cursor: pointer;
+      border: none;
+      box-shadow: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $black;
+      height: 34px;
+      transition: all 0.3s;
+      width: auto !important;
+
+      option {
+        padding: 8px 0;
+      }
+
+      &:hover {
+        color: $brand-primary;
+      }
+
+    }
+
+    &:after {
+      color: $black;
+    }
+  }
+}
+
+/*
+ * = In Footer
+ */
+.footer {
+  .block-lang-dropdown {
+    right: 15px;
+    top: 24px;
+
+    .select-wrapper {
+
+      .form-control {
+        background: none;
+        color: $gray-lighter;
+        font-size: 12px;
+
+        option {
+          color: $black;
+        }
+
+        &:hover {
+          color: $brand-primary;
+        }
+      }
+      &:after {
+        color: $gray-lighter;
+      }
+    }
+  }
+}
+
+/* ==============================
+ * == Dropdown menu
+ * ============================== */
+@media #{$normal} {
+  .menu--main.nav,
+  .menu--secondary-navigation {
+
+    > li {
+      > a, span:not(.icomoon) {
+        &.dropdown-toggle {
+          &:hover {
+            & + .dropdown-menu {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+    .dropdown-menu {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      padding: 0;
+      margin: 0;
+      border: 0;
+      border-top: 3px solid $white;
+
+      transition: opacity $transition_time $ease, transform $transition_time $ease;
+
+      &:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      a {
+        padding: 15px 20px;
+        text-transform: uppercase;
+        font-size: $font-size-small;
+        letter-spacing: 1px;
+        color: $gray-darker;
+        background-color: transparent;
+        font-weight: 600;
+
+        &:before {
+          @include im('\e902');
+          margin-right: 8px;
+          color: $gray-darker;
+          transition: color .2s $ease, margin $transition_time $ease;
+        }
+
+        &:hover {
+          background-color: $black;
+          color: $white;
+
+          &:before {
+            margin-right: 16px;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$tablet-max} {
+
+  .navbar .branding .logo {
+    width: 162px;
+    height: 39px;
+  }
+
+  .dialog-off-canvas-main-canvas.nav-is-open {
+    transform: translateX(-73%);
+  }
+  .dialog-off-canvas-main-canvas {
+    transition: transform $transition_time $ease;
+    z-index: 999;
+    position: relative;
+    background-color: $white;
+  }
+
+  .navbar {
+    height: 100%;
+    margin-bottom: 0;
+
+    > .row, .col-sm-10, .navbar-header {
+      height: 100%;
+    }
+  }
+
+  .navbar-toggle {
+    margin-right: 0;
+    margin-top: 16px;
+
+    .icon-bar {
+      background-color: $black;
+
+      &:nth-child(2) {
+        transform-origin: 4px top;
+      }
+
+      &:last-child {
+        transform-origin: left top;
+      }
+    }
+
+    &.nav-is-open {
+      .icon-bar {
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(3) {
+          visibility: hidden;
+        }
+        &:last-child {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  #navbar-collapse {
+    position: fixed;
+
+    width: 73%;
+    height: 100vh !important;
+    top: 0;
+    right: 0;
+    background: $black;
+    z-index: 502;
+    padding-top: 65px;
+
+    .dropdown-backdrop {
+      display: none !important;
+    }
+
+    .region-navigation-collapsible {
+      flex-flow: row wrap;
+    }
+
+    nav {
+      width: 100%;
+      flex: 1 1 100%;
+
+      .menu {
+        margin: 0 !important;
+
+        > li {
+          width: 100%;
+
+          .dropdown-menu {
+            padding: 0;
+          }
+
+          &.open {
+            .dropdown-menu {
+              position: static;
+              float: none;
+              width: auto;
+              margin-top: 0;
+              border: 0;
+              box-shadow: none;
+
+              > li {
+                > a {
+                  padding: 5px 15px 5px 25px;
+                  display: block;
+                  line-height: 40px;
+                }
+              }
+            }
+          }
+
+          &.dropdown {
+
+            &.active {
+              > .dropdown-toggle {
+                background-color: $brand-primary;
+              }
+            }
+
+            .dropdown-toggle {
+              .icomoon {
+                &:before {
+                  content: "\e902";
+                }
+              }
+            }
+
+            &.open {
+              .dropdown-toggle {
+                background-color: transparent;
+
+                .icomoon {
+                  &:before {
+                    content: "\e900";
+                  }
+                }
+              }
+            }
+          }
+
+          &.active.open {
+            > a {
+              color: $brand-primary !important;
+            }
+          }
+
+          > a {
+            color: $white;
+
+            &.dropdown-toggle {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+
+          .dropdown-menu {
+            background-color: $gray-darker;
+
+            > li {
+              > a {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

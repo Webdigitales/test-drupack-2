@@ -1,0 +1,20 @@
+uuid: 961465f1-6163-43cb-a228-11a2b6ddf55e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.testimonials
+id: paragraph.testimonials.uid
+field_name: uid
+entity_type: paragraph
+bundle: testimonials
+label: 'Écrit par'
+description: 'The user ID of the paragraphs author.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\paragraphs\Entity\Paragraph::getCurrentUserId'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

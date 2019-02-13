@@ -1,0 +1,43 @@
+framework:
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Poppins:400,400i,500,600|Raleway:400,500,600,700: { type: external }
+      fonts/icomoon/style.css: {}
+      css/style.css: {}
+  js:
+    bootstrap/assets/javascripts/bootstrap/affix.js: {}
+    bootstrap/assets/javascripts/bootstrap/alert.js: {}
+    bootstrap/assets/javascripts/bootstrap/button.js: {}
+    bootstrap/assets/javascripts/bootstrap/carousel.js: {}
+    bootstrap/assets/javascripts/bootstrap/collapse.js: {}
+    bootstrap/assets/javascripts/bootstrap/dropdown.js: {}
+    bootstrap/assets/javascripts/bootstrap/modal.js: {}
+    bootstrap/assets/javascripts/bootstrap/tooltip.js: {}
+    bootstrap/assets/javascripts/bootstrap/popover.js: {}
+    bootstrap/assets/javascripts/bootstrap/scrollspy.js: {}
+    bootstrap/assets/javascripts/bootstrap/tab.js: {}
+    bootstrap/assets/javascripts/bootstrap/transition.js: {}
+    //cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js: { type: external, minified: true }
+    //cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js: { type: external, minified: true }
+    //cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.js: { type: external, minified: true }
+    js/common.js: {}
+    js/main.js: {}
+
+paragraphs:
+  css:
+    theme:
+      //cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css: { type: external, minified: true }
+
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js: { type: external, minified: true }
+    js/paragraphs.js: {}
+  dependencies:
+      - core/jquery
+
+searchmodal:
+  js:
+    js/search-modal.js: {}
+
+addthis:
+  js:
+    //s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bf920f8292544c4: { type: external, minified: true }

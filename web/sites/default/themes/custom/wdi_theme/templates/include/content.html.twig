@@ -1,0 +1,52 @@
+{# Main #}
+{% block main %}
+  <section role="main" class="main-container js-quickedit-main-content content-wrapper">
+    <div class="{{ container }}">
+      {# Sidebar First #}
+      {% if page.sidebar_first is defined and page.sidebar_first|render|striptags|trim  %}
+        {% block sidebar_first %}
+          <aside class="sidebar sidebar--left" role="complementary">
+            <div class="col-sm-3">
+              <section class="sidebar-content">
+
+              </section>
+            </div>
+            {{ page.sidebar_first }}
+          </aside>
+        {% endblock %}
+      {% endif %}
+
+      {# Content #}
+      {% set content_classes = [
+        page.sidebar_first and page.sidebar_second ? 'col-sm-6',
+        page.sidebar_first|render|striptags|trim and page.sidebar_second is empty ? 'col-sm-9',
+        page.sidebar_second and page.sidebar_first|render|striptags|trim is empty ? 'col-sm-9',
+        page.sidebar_first|render|striptags|trim is empty and page.sidebar_second|render|striptags|trim is empty ? 'col-sm-10 col-sm-offset-1'
+      ] %}
+
+      {# Help #}
+      {% if page.help |render|striptags|trim %}
+        {% block help %}
+          {{ page.help }}
+        {% endblock %}
+      {% endif %}
+
+      {# Content #}
+      {% block content %}
+        <a id="main-content"></a>
+        <main class="content content-main">
+          {{ page.content }}
+        </main>
+      {% endblock %}
+
+      {# Sidebar Second #}
+      {% if page.sidebar_second |render|striptags|trim %}
+        {% block sidebar_second %}
+          <aside class="col-sm-3" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endblock %}
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,8 @@
+uuid: 79d10a39-247b-47dc-82c7-177c45b9842c
+langcode: en
+status: true
+dependencies: {  }
+id: secondary-navigation
+label: 'Main navigation (right)'
+description: 'Liens de droite'
+locked: false

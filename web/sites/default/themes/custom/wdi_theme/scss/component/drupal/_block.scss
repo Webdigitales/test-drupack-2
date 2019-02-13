@@ -1,0 +1,54 @@
+/* --------------------------------------------------
+ * Blocks
+ ---------------------------------------------------- */
+
+// *** Global Style *** //
+.block {
+
+  h2 {
+    strong {
+      color: $brand-primary;
+    }
+  }
+
+  .field--name-field-label-link {
+    font-size: $font-size-h4;
+    font-family: $headings-font-family;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .field--type-image {
+    img {
+      border-radius: $border-radius-base;
+    }
+  }
+
+  .btn-link {
+    margin-top: 20px;
+  }
+}
+
+// *** Partners *** //
+
+.block-views-blockpartners-listing-partners {
+  margin-bottom: 40px;
+
+  .field--name-field-logo {
+    text-align: center;
+
+    img {
+      display: inline-block;
+    }
+  }
+
+  .views-infinite-scroll-content-wrapper {
+    @include make-row();
+  }
+
+  .views-view-grid {
+    @include make-md-column-offset(1);
+    @include make-md-column(10);
+  }
+}

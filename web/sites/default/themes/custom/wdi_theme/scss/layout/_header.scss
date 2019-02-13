@@ -1,0 +1,30 @@
+.region-navigation-collapsible {
+  display: flex;
+  justify-content: space-between;
+}
+
+section.tabs {
+  background-color: $brand-primary;
+
+  .nav-tabs {
+    border: 0;
+  }
+
+  .nav-tabs > li > a {
+    color: $white;
+    border: 0;
+    border-radius: 0;
+    padding: 15px 30px;
+
+    &:hover, &:focus {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: $gray-base;
+    background-color: $gray-darker;
+    border: 0;
+  }
+}

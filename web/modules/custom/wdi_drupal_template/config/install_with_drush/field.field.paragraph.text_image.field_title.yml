@@ -1,0 +1,19 @@
+uuid: c6547009-5a7c-4604-a41d-5f5ba29fa101
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.text_image
+id: paragraph.text_image.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: text_image
+label: 'Title - H3'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
