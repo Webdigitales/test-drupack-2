@@ -1,0 +1,61 @@
+drupal:
+  core: 8
+  root: "web"
+  base_url: "http://127.0.0.1"
+  site:
+    profile: standard
+    name: "Drupack"
+    mail: "drupal@webdigitales.be"
+    locale: "en"
+    sites_subdir: "default"
+  account:
+    name: "webdigitales"
+    password: "webdigitales"
+    mail: "drupal@webdigitales.be"
+  database:
+    scheme: "mysql"
+    host: "db"
+    port: "3306"
+    name: "drupal"
+    user: "root"
+    password: ""
+  settings:
+    settings:
+      file_scan_ignore_directories:
+        - "node_modules"
+        - "bower_components"
+        - "vendor"
+        - "${drupal.root}"
+    config_directories:
+      sync: "../config/sync"
+      prod: "../config/prod"
+  post_install:
+    - ./vendor/bin/drush --root=$(pwd)/web then bootstrap -y
+    - ./vendor/bin/drush --root=$(pwd)/web then adminimal_theme -y
+    - ./vendor/bin/drush --root=$(pwd)/web config-set "system.site" page.front "/node/1" -y
+    - ./vendor/bin/drush --root=$(pwd)/web en webform -y
+    - ./vendor/bin/drush --root=$(pwd)/web en wdi_drupal_template -y
+    - ./vendor/bin/drush --root=$(pwd)/web ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'
+    - ./vendor/bin/drush --root=$(pwd)/web cim --partial --source /app/web/modules/custom/wdi_drupal_template/config/install_with_drush -y
+    - ./vendor/bin/drush --root=$(pwd)/web then wdi_theme -y
+    - ./vendor/bin/drush --root=$(pwd)/web config-set system.theme default wdi_theme
+    - ./vendor/bin/drush --root=$(pwd)/web genc 1 --types=homepage -y
+    - ./vendor/bin/drush --root=$(pwd)/web genc 1 --types=page -y
+    - ./vendor/bin/drush --root=$(pwd)/web cr
+  drush:
+    options:
+      ignored-directories: "${drupal.root}"
+      uri: "${drupal.base_url}"
+
+commands:
+  drupal:site-setup:
+    - { task: "mkdir", dir: "${drupal.root}/profiles" }
+    - { task: "mkdir", dir: "${drupal.root}/themes" }
+    - { task: "copy", from: "./provisioning/wdi_drupal_template", to: "${drupal.root}/modules/custom/wdi_drupal_template" }
+    - { task: "copy", from: "./provisioning/wdi_theme", to: "${drupal.root}/sites/${drupal.site.sites_subdir}/themes/custom/wdi_theme" }
+    - { task: "copy", from: "./provisioning/default.settings.php", to: "${drupal.root}/sites/${drupal.site.sites_subdir}/default.settings.php" }
+    - { task: "copy", from: "./provisioning/settings.local.php", to: "${drupal.root}/sites/${drupal.site.sites_subdir}/settings.local.php" }
+    - { task: "copy", from: "./provisioning/development.services.yml", to: "${drupal.root}/sites/development.services.yml" }
+    - { task: "run", command: "drupal:drush-setup" }
+    - { task: "run", command: "drupal:settings-setup" }
+    - { task: "remove", file: "./provisioning" }
